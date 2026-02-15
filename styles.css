@@ -466,63 +466,6 @@ a {
   color: var(--text);
 }
 
-/* Research Focus Styles */
-.research-focus {
-  margin-bottom: 32px;
-}
-
-.research-focus h3 {
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--text);
-}
-
-.research-focus h3 i {
-  color: var(--primary);
-  font-size: 1.3em;
-}
-
-.focus-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-}
-
-.focus-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  transition: all 0.3s ease;
-}
-
-.focus-item:hover {
-  border-color: var(--primary);
-  box-shadow: 0 4px 12px rgba(17, 114, 212, 0.1);
-}
-
-.focus-item h4 {
-  margin-bottom: 10px;
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.95rem;
-}
-
-.focus-item h4 i {
-  color: var(--primary);
-  font-size: 1.2em;
-}
-
-.focus-item p {
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
 .site-footer {
   margin-top: 84px;
   padding: 56px 5vw;
