@@ -106,7 +106,7 @@ a {
 .hero {
   position: relative;
   min-height: 72vh;
-  background: url("https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=1800&q=80") center/cover;
+  background: url("https://images.unsplash.com/photo-1531243269054-53f6da887adc?auto=format&fit=crop&w=1800&q=80") center/cover;
   display: grid;
   place-items: center;
 }
