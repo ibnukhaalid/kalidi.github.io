@@ -430,6 +430,40 @@ a {
   line-height: 1.6;
 }
 
+/* Analysis Grid Layout */
+.analysis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.analysis-visual {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.analysis-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.analysis-findings {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (max-width: 760px) {
+  .analysis-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
 /* Philosophy Section */
 .philosophy-section {
   background: linear-gradient(135deg, #fff9f0 0%, #fffbf5 100%);
