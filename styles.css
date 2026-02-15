@@ -402,6 +402,356 @@ a {
     min-height: 80vh;
   }
 }
+
+/* Professional Work Styles */
+.work-highlight {
+  margin-bottom: 40px;
+}
+
+.work-highlight h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.work-highlight > p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.position-card,
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.position-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.position-meta span,
+.timeline-marker {
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  background: rgba(17, 114, 212, 0.1);
+  color: var(--primary);
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.position-card h4,
+.position-card h5,
+.project-card h4 {
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.position-card h5 {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: -4px;
+  margin-bottom: 12px;
+}
+
+.position-card p,
+.project-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.key-finding {
+  background: #f0f7ff;
+  border-left: 3px solid var(--primary);
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+.key-finding strong {
+  color: var(--primary);
+}
+
+.research-items {
+  display: grid;
+  gap: 12px;
+}
+
+.research-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: var(--surface);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.research-item i {
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.research-item p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.project-detail {
+  padding: 12px;
+}
+
+.project-detail strong {
+  display: block;
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.project-detail p {
+  color: var(--text);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.initiatives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.initiative {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.initiative h4 {
+  color: var(--primary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+
+.initiative p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.timeline-container {
+  position: relative;
+  padding-left: 24px;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary), var(--border));
+}
+
+.timeline-item {
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 3px solid var(--bg);
+}
+
+.timeline-content {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.timeline-content h4 {
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.timeline-content > p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 8px 0;
+}
+
+.achievement-list {
+  list-style: none;
+  margin-top: 12px;
+}
+
+.achievement-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.achievement-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.leadership-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.leadership-item h4 {
+  color: var(--text);
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.leadership-item p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.competencies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.competency-column h4 {
+  color: var(--primary);
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.competency-list {
+  list-style: none;
+}
+
+.competency-list li {
+  padding: 8px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.competency-list li:last-child {
+  border-bottom: none;
+}
+
+.competency-list strong {
+  color: var(--text);
+}
+
+.regional-exp {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 20px;
+}
+
+.regional-exp h4 {
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.regional-exp p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.impact-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.impact-stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  display: block;
+}
+
+.org-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.org-badge {
+  background: linear-gradient(135deg, rgba(17, 114, 212, 0.1), rgba(17, 114, 212, 0.05));
+  border: 1px solid rgba(17, 114, 212, 0.2);
+  color: var(--primary);
+  padding: 12px 16px;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
 +:root {
 +  --bg: #f4f8fc;
 +  --surface: #ffffff;
