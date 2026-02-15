@@ -89,11 +89,18 @@ a {
   color: var(--muted);
   font-size: 0.94rem;
   font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
   background: #e8f2fe;
   color: var(--primary-dark);
+}
+
+.nav-links a.active {
+  background: var(--primary);
+  color: white;
 }
 
 .hero {

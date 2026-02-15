@@ -839,6 +839,59 @@ graph export "$OUT/vitA_trends.png", replace width(2000)</code></pre>
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Tab functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const contentSections = document.querySelectorAll('main .content-section');
+        
+        // Initially hide all content sections except the first one (about)
+        contentSections.forEach((section, index) => {
+          if (index !== 0) {
+            section.style.display = 'none';
+          }
+        });
+
+        // Add click handlers to nav links
+        navLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Only handle content section tabs, not contact
+            if (href === '#contact') {
+              return; // Let default link behavior for contact
+            }
+            
+            e.preventDefault();
+            
+            // Remove active class from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+            
+            // Add active class to clicked link
+            this.classList.add('active');
+            
+            // Hide all content sections
+            contentSections.forEach(section => {
+              section.style.display = 'none';
+            });
+            
+            // Show selected section
+            const targetId = href.substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+              targetSection.style.display = 'block';
+              // Scroll to section
+              targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+
+        // Set initial active state
+        const firstLink = navLinks[0];
+        if (firstLink) {
+          firstLink.classList.add('active');
+        }
+      });
     </script>
   </body>
 </html>
