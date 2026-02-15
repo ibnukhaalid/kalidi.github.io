@@ -256,6 +256,123 @@ a {
   color: #fff;
 }
 
+.research-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.research-stats div {
+  padding: 16px;
+  background: var(--surface);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.research-stats strong {
+  font-size: 1.8rem;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.research-category {
+  margin-bottom: 48px;
+}
+
+.category-title {
+  font-size: 1.3rem;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--primary);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.publication {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.pub-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.pub-meta span {
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  background: rgba(17, 114, 212, 0.1);
+  color: var(--primary);
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.publication h4 {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.publication p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.publication em {
+  color: #7c8ba3;
+}
+
+.pub-cite {
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 500;
+  margin: 8px 0;
+}
+
+.pub-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.pub-links a,
+.pub-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  transition: 0.2s ease;
+}
+
+.pub-links a:hover,
+.pub-btn:hover {
+  background: rgba(17, 114, 212, 0.1);
+}
+
+.gallery-placeholder {
+  background: var(--surface);
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  padding: 48px;
+  text-align: center;
+  color: var(--muted);
+}
+
 .contact-links {
   margin: 20px 0;
   display: flex;
