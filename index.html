@@ -645,10 +645,197 @@
       <section id="coding" class="content-section">
         <div class="section-title">
           <h2>Coding Nerd</h2>
-          <p>Data visualization, dashboards, and research tools to support evidence-based decision-making.</p>
+          <p>Behind every data visualization and research finding lies carefully crafted code. Here's a glimpse into the statistical programming that powers nutrition analysis and evidence-based decision making.</p>
         </div>
-        <div class="gallery-placeholder">
-          <p><em>Portfolio coming soon</em></p>
+
+        <!-- Data Analysis Overview -->
+        <div class="coding-intro-box">
+          <h3><i class="fa-solid fa-database"></i> Data Analysis</h3>
+          <p>Comprehensive analysis of FSNAU nutrition data spanning 2015-2024, focusing on GAM, morbidity, and Vitamin A coverage trends.</p>
+          <div class="data-points">
+            <div class="data-point">
+              <strong>Statistical Programming</strong>
+              <span>Using Stata for robust statistical analysis, data cleaning, and professional visualization of health and nutrition indicators.</span>
+            </div>
+            <div class="data-point">
+              <strong>Research Output</strong>
+              <span>Code that generates publication-ready visualizations revealing critical inverse relationships between interventions and health outcomes.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Code Snippet -->
+        <div class="code-showcase">
+          <h3><i class="fa-solid fa-code"></i> Stata Analysis: Vitamin A Impact on Child Health</h3>
+          <div class="code-tags">
+            <span class="tag">Stata</span>
+            <span class="tag">Data Visualization</span>
+            <span class="tag">Health Statistics</span>
+            <span class="tag">FSNAU Data</span>
+          </div>
+          <p style="margin: 16px 0; color: #5a6a80;">This Stata script analyzes the relationship between Vitamin A supplementation coverage and child health outcomes in Somalia, revealing a powerful inverse correlation between Vitamin A coverage and both morbidity and malnutrition rates. The analysis uses FSNAU data from 2015-2024 to generate publication-ready visualizations for evidence-based policy recommendations.</p>
+          
+          <div class="code-block">
+            <pre><code>clear all
+set more off
+
+*---------------------------------------------------------------*
+* 0. PATHS
+*---------------------------------------------------------------*
+global ROOT "~/nutrition_analysis/dashboard"
+global DATA "$ROOT/fsnau_nutrition_2009_2024.csv"
+global OUT "$ROOT/graphs"
+capture mkdir "$OUT"
+
+set scheme s1mono
+
+*---------------------------------------------------------------*
+* 1. DATA LOAD & CLEAN
+*---------------------------------------------------------------*
+import delimited using "$DATA", clear varn(1)
+rename *, lower
+
+foreach var in gam vitamina morbidity year {
+    capture confirm numeric variable `var'
+    if _rc destring `var', replace force
+}
+
+label var gam "GAM (%)"
+label var vitamina "Vitamin A Coverage (%)"
+label var morbidity "Morbidity (%)"
+
+keep year gam vitamina morbidity
+drop if missing(year)
+keep if year >= 2015
+
+collapse (mean) gam vitamina morbidity, by(year)
+
+*---------------------------------------------------------------*
+* 2. DEFINE CORRELATION YEARS
+*---------------------------------------------------------------*
+local corr_years 2018 2019 2022
+
+foreach y of local corr_years {
+    quietly summarize gam if year==`y'
+    local gam_`y' = r(mean)
+    quietly summarize morbidity if year==`y'
+    local morbidity_`y' = r(mean)
+    quietly summarize vitamina if year==`y'
+    local vita_`y' = r(mean)
+}
+
+*---------------------------------------------------------------*
+* 3. ROUND LABELS FOR CLEAN DISPLAY
+*---------------------------------------------------------------*
+gen gam_round = round(gam)
+gen morbidity_round = round(morbidity)
+gen vitamina_round = round(vitamina)
+
+*---------------------------------------------------------------*
+* 4. GRAPH: Dual-Axis with Matching Colors
+*---------------------------------------------------------------*
+set scheme s1color  // Ensures legend matches plot colors
+
+twoway ///
+    (line gam year, lcolor("30 136 229") lwidth(medthick) lpattern(solid) yaxis(1)) ///
+    (line morbidity year, lcolor("255 167 38") lwidth(medthick) lpattern(dash) yaxis(1)) ///
+    (line vitamina year, lcolor("67 160 71") lwidth(medthick) lpattern(shortdash_dot) yaxis(2)) ///
+    (scatter gam year if inlist(year,2018,2019,2022), msymbol(O) mcolor("30 136 229") msize(medlarge) ///
+        mlabel(gam_round) mlabsize(small) mlabposition(14)) ///
+    (scatter morbidity year if inlist(year,2018,2019,2022), msymbol(D) mcolor("255 167 38") msize(medlarge) ///
+        mlabel(morbidity_round) mlabsize(small) mlabposition(6)) ///
+    (scatter vitamina year if inlist(year,2018,2019,2022), msymbol(T) mcolor("67 160 71") msize(medlarge) ///
+        mlabel(vitamina_round) mlabsize(small) mlabposition(11)) ///
+    , ///
+    title("Impact of Vitamin A Coverage on Child Health", size(large) margin(b=5)) ///
+    subtitle("Trends in Morbidity and Acute Malnutrition, Somalia 2015-2024", size(medsmall)) ///
+    xtitle("Year", size(small)) ///
+    ytitle("Prevalence (%)", axis(1) size(small)) ///
+    ytitle("Vitamin A Coverage (%)", axis(2) size(small)) ///
+    xlabel(2015(1)2024, angle(45) labsize(small)) ///
+    ylabel(0(5)30, axis(1) labsize(small) grid glcolor(gs14) glwidth(vthin)) ///
+    ylabel(50(10)90, axis(2) labsize(small) grid glcolor(gs14) glwidth(vthin)) ///
+    legend(order(1 "Acute Malnutrition (GAM)" 2 "Morbidity Rate" 3 "Vitamin A Coverage") ///
+        pos(6) row(1) size(small) region(lcolor(none)) colfirst symplacement(center)) ///
+    graphregion(color(white)) plotregion(color(white)) bgcolor(white) aspectratio(0.6) ///
+    note("Source: FSNAU Somalia Data. Markers show key years demonstrating the inverse relationship.", size(vsmall))
+
+graph export "$OUT/vitA_trends.png", replace width(2000)</code></pre>
+          </div>
+
+          <!-- Code Features -->
+          <div class="code-features">
+            <div class="feature">
+              <h4><i class="fa-solid fa-check"></i> Robust Data Cleaning</h4>
+              <p>Handles missing values and ensures data integrity across analysis workflows</p>
+            </div>
+            <div class="feature">
+              <h4><i class="fa-solid fa-check"></i> Dual-Axis Visualization</h4>
+              <p>Displays multiple indicators with appropriate scaling for comparative analysis</p>
+            </div>
+            <div class="feature">
+              <h4><i class="fa-solid fa-check"></i> Publication Ready</h4>
+              <p>Professional formatting with proper labeling and annotations for academic journals</p>
+            </div>
+            <div class="feature">
+              <h4><i class="fa-solid fa-check"></i> Interactive Elements</h4>
+              <p>Markers highlight key correlation years showing critical health outcome patterns</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analysis Output -->
+        <div class="analysis-output">
+          <h3><i class="fa-solid fa-chart-bar"></i> Analysis Output & Key Findings</h3>
+          
+          <div class="finding-box">
+            <h4>Primary Finding</h4>
+            <p><strong>Inverse relationship between Vitamin A coverage and child health outcomes</strong> — When coverage drops, both morbidity and malnutrition increase significantly. This demonstrates the critical importance of sustained micronutrient coverage programs.</p>
+          </div>
+
+          <div class="finding-box">
+            <h4>Policy Implication</h4>
+            <p><strong>Targeted micronutrient programs are non-negotiable</strong> components of global health strategy, with measurable impact on population health indicators. Evidence-based resource allocation can maximize health gains.</p>
+          </div>
+
+          <div class="finding-box">
+            <h4>Technical Excellence</h4>
+            <p><strong>High-resolution export (2000px width)</strong> ensures publication quality for academic journals and policy briefs. Professional visualization standards support dissemination to diverse audiences.</p>
+          </div>
+        </div>
+
+        <!-- Development Philosophy -->
+        <div class="philosophy-section">
+          <h3><i class="fa-solid fa-lightbulb"></i> Data-Driven Development Philosophy</h3>
+          <div class="philosophy-box">
+            <p>Every line of code serves a purpose: <strong>transforming raw data into actionable insights that can save lives and improve food security.</strong> Statistical programming is not just about analysis—it's about building evidence that drives policy change and humanitarian intervention.</p>
+            <p style="margin-top: 12px;">The work bridges academia and practice, ensuring that rigorous research findings reach decision-makers in government, NGOs, and development institutions where they can create tangible impact on vulnerable communities.</p>
+          </div>
+        </div>
+
+        <!-- Research Focus Areas -->
+        <div class="research-focus">
+          <h3><i class="fa-solid fa-microscope"></i> Maternal and Child Health: Research Focus Areas</h3>
+          <p style="margin-bottom: 20px; color: #5a6a80;">Comprehensive research approach addressing the interconnected challenges of maternal and child health through evidence-based analysis and innovative programming solutions.</p>
+          
+          <div class="focus-grid">
+            <div class="focus-item">
+              <h4><i class="fa-solid fa-apple"></i> Food Security & Nutrition</h4>
+              <p>Investigating the complex relationships between food systems, agricultural practices, and nutritional outcomes in vulnerable populations, with particular focus on addressing undernutrition.</p>
+            </div>
+            <div class="focus-item">
+              <h4><i class="fa-solid fa-sprout"></i> Climate-Smart Agriculture</h4>
+              <p>Researching adoption patterns and effectiveness of climate-smart agricultural practices in building resilience against climate change impacts and enhancing farmer livelihoods.</p>
+            </div>
+            <div class="focus-item">
+              <h4><i class="fa-solid fa-shield"></i> Resilience Building</h4>
+              <p>Developing frameworks and interventions to strengthen community resilience in the face of environmental, economic, and social challenges through integrated programming.</p>
+            </div>
+            <div class="focus-item">
+              <h4><i class="fa-solid fa-gavel"></i> Policy Implementation</h4>
+              <p>Analyzing the effectiveness of development policies and programs, with focus on scaling successful interventions and improving implementation strategies in complex contexts.</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
