@@ -118,13 +118,18 @@ a {
 }
 
 .hero-content {
-  font-size: clamp(32px, 5vw, 48px); /* small screens -> 32px, large -> 48px */
-  line-height: 1.1;
   z-index: 1;
   max-width: 900px;
   padding: 100px 6vw;
   text-align: center;
   color: #fff;
+}
+
+/* Only the name */
+.hero-content h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.1;
+  margin: 12px 0 10px; /* optional */
 }
 
 .hero-inner {
