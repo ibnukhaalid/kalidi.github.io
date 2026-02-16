@@ -127,7 +127,7 @@ a {
 
 /* Only the name */
 .hero-content h1 {
-  font-size: clamp(32px, 5vw, 48px);
+  font-size: clamp(28px, 5vw, 48px);
   line-height: 1.1;
   margin: 12px 0 10px; /* optional */
 }
