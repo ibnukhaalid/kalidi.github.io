@@ -39,7 +39,6 @@
           <div class="hero-actions">
             <a class="button primary" href="#research">View Research</a>
             <a class="button ghost" href="https://scholar.google.com/citations?user=-RDwmqIAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
-            <!-- CV button removed as requested -->
           </div>
         </div>
         <div class="hero-photo">
@@ -507,7 +506,7 @@
         </div>
       </div>
 
-      <!-- Featured Code Snippet with Tabs -->
+      <!-- Featured Code Snippet with Tabs (tabs still require JS, we'll keep the code block only) -->
       <div class="code-showcase">
         <h3><i class="fa-solid fa-code" aria-hidden="true"></i> Stata Analysis: Vitamin A Impact on Child Health</h3>
         <div class="code-tags">
@@ -516,16 +515,8 @@
           <span class="tag">Health Statistics</span>
           <span class="tag">FSNAU Data</span>
         </div>
-
-        <div class="analysis-output">
-          <div class="code-tabs">
-            <button class="tab active" data-tab="code">Code</button>
-            <button class="tab" data-tab="graph">Graph & Findings</button>
-          </div>
-
-          <div class="tab-content code active">
-            <div class="code-block">
-              <pre><code>clear all
+        <div class="code-block">
+          <pre><code>clear all
 set more off
 
 *---------------------------------------------------------------*
@@ -583,7 +574,7 @@ gen vitamina_round = round(vitamina)
 *---------------------------------------------------------------*
 * 4. GRAPH: Dual-Axis with Matching Colors
 *---------------------------------------------------------------*
-set scheme s1color  // Ensures legend matches plot colors
+set scheme s1color
 
 twoway ///
     (line gam year, lcolor("30 136 229") lwidth(medthick) lpattern(solid) yaxis(1)) ///
@@ -610,37 +601,16 @@ twoway ///
     note("Source: FSNAU Somalia Data. Markers show key years demonstrating the inverse relationship.", size(vsmall))
 
 graph export "$OUT/vitA_trends.png", replace width(2000)</code></pre>
-            </div>
-            <div class="code-features">
-              <div class="feature"><h4><i class="fa-solid fa-check" aria-hidden="true"></i> Robust Data Cleaning</h4><p>Handles missing values and ensures data integrity across analysis workflows</p></div>
-              <div class="feature"><h4><i class="fa-solid fa-check" aria-hidden="true"></i> Dual-Axis Visualization</h4><p>Displays multiple indicators with appropriate scaling for comparative analysis</p></div>
-              <div class="feature"><h4><i class="fa-solid fa-check" aria-hidden="true"></i> Publication Ready</h4><p>Professional formatting with proper labeling and annotations for academic journals</p></div>
-              <div class="feature"><h4><i class="fa-solid fa-check" aria-hidden="true"></i> Interactive Elements</h4><p>Markers highlight key correlation years showing critical health outcome patterns</p></div>
-            </div>
-          </div>
-
-          <div class="tab-content graph">
-            <div class="analysis-grid">
-              <div class="analysis-visual">
-                <img src="images/stata-analysis-chart.png" alt="Stata Analysis Visualization - Vitamin A Coverage Impact on Child Health Outcomes" loading="lazy">
-                <p style="text-align: center; color: #5a6a80; font-size: 0.9rem; margin-top: 12px;"><em>Statistical visualization showing inverse relationship between Vitamin A coverage and malnutrition/morbidity rates</em></p>
-              </div>
-              <div class="analysis-findings">
-                <div class="finding-box">
-                  <h4>Primary Finding</h4>
-                  <p><strong>Inverse relationship between Vitamin A coverage and child health outcomes</strong> — When coverage drops, both morbidity and malnutrition increase significantly. This demonstrates the critical importance of sustained micronutrient coverage programs.</p>
-                </div>
-                <div class="finding-box">
-                  <h4>Policy Implication</h4>
-                  <p><strong>Targeted micronutrient programs are non-negotiable</strong> components of global health strategy, with measurable impact on population health indicators. Evidence-based resource allocation can maximize health gains.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div class="code-features">
+          <div class="feature"><h4><i class="fa-solid fa-check" aria-hidden="true"></i> Robust Data Cleaning</h4><p>Handles missing values and ensures data integrity across analysis workflows</p></div>
+          <div class="feature"><h4><i class="fa-solid fa-check" aria-hidden="true"></i> Dual-Axis Visualization</h4><p>Displays multiple indicators with appropriate scaling for comparative analysis</p></div>
+          <div class="feature"><h4><i class="fa-solid fa-check" aria-hidden="true"></i> Publication Ready</h4><p>Professional formatting with proper labeling and annotations for academic journals</p></div>
+          <div class="feature"><h4><i class="fa-solid fa-check" aria-hidden="true"></i> Interactive Elements</h4><p>Markers highlight key correlation years showing critical health outcome patterns</p></div>
         </div>
       </div>
 
-      <!-- NEW: Data Visualization Gallery -->
+      <!-- Data Visualization Gallery -->
       <div class="work-highlight">
         <h3><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Additional Data Visualizations</h3>
         <p style="margin-bottom: 24px; color: #5a6a80;">A collection of key charts and tables from my research on nutrition, agriculture, and climate in Somalia.</p>
@@ -714,97 +684,7 @@ graph export "$OUT/vitA_trends.png", replace width(2000)</code></pre>
       <a href="https://www.linkedin.com/in/mohamed-kalid-ali-2677108b" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
       <a href="https://scholar.google.com/citations?user=-RDwmqIAAAAJ&hl=en" target="_blank" rel="noreferrer"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Scholar</a>
     </div>
-    <p class="copyright">© <span id="year"></span> Mohamed Kalid Ali</p>
+    <p class="copyright">© 2025 Mohamed Kalid Ali</p>
   </footer>
-
-  <!-- Back to Top Button -->
-  <button id="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const navLinks = document.querySelectorAll('.nav-links a');
-      const brandLink = document.getElementById('brand-link');
-      const contentSections = document.querySelectorAll('main .content-section');
-
-      function showSection(targetId) {
-        contentSections.forEach(section => { section.style.display = 'none'; });
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) targetSection.style.display = 'block';
-        navLinks.forEach(link => link.classList.remove('active'));
-        const activeLink = document.querySelector(`.nav-links a[href="#${targetId}"]`);
-        if (activeLink) activeLink.classList.add('active');
-      }
-
-      const hash = window.location.hash.substring(1);
-      if (hash && document.getElementById(hash) && hash !== 'contact') {
-        showSection(hash);
-      } else {
-        showSection('about');
-      }
-
-      navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          const href = this.getAttribute('href');
-          const targetId = href.substring(1);
-          if (targetId === 'contact') {
-            navLinks.forEach(l => l.classList.remove('active'));
-            return;
-          }
-          e.preventDefault();
-          showSection(targetId);
-          history.pushState(null, null, href);
-          document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-      });
-
-      brandLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        showSection('about');
-        history.pushState(null, null, '#about');
-      });
-
-      // Intersection Observer for fade-in
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.content-section').forEach(section => {
-        observer.observe(section);
-      });
-
-      // Back to Top
-      const backToTop = document.getElementById('back-to-top');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-          backToTop.classList.add('visible');
-        } else {
-          backToTop.classList.remove('visible');
-        }
-      });
-      backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-
-      // Tabs in coding section
-      const tabs = document.querySelectorAll('.tab');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const parent = tab.closest('.analysis-output');
-          parent.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-          parent.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-          tab.classList.add('active');
-          const tabName = tab.dataset.tab;
-          parent.querySelector(`.tab-content.${tabName}`).classList.add('active');
-        });
-      });
-    });
-  </script>
 </body>
 </html>
