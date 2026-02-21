@@ -245,13 +245,10 @@ a {
   margin: 76px auto 0;
   padding: 0 5vw;
   scroll-margin-top: calc(var(--header-height) + 20px);
-  opacity: 1;          /* visible by default */
-  transform: none;     /* no animation */
-  /* transition can be kept or removed – it won't affect anything */
+  display: none; /* hidden by default */
 }
 
-
-
+/* Keep this if you still want the alt background */
 .content-section.alt {
   background: #edf5ff;
   padding: 56px 5vw;
