@@ -1,3 +1,4 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/index.html b/index.html
 index a6fb70280642276e3e344df909b439b5be6e6633..9ec6152448dde40c9896ab52f0f00514b6c83066 100644
 --- a/index.html
@@ -181,3 +182,6 @@ index a6fb70280642276e3e344df909b439b5be6e6633..9ec6152448dde40c9896ab52f0f00514
                </div>
                <div class="project-detail">
                  <strong>Focus Areas:</strong>
+ 
+EOF
+)
