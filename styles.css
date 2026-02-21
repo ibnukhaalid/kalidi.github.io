@@ -250,10 +250,7 @@ a {
   /* transition can be removed or kept – it won't affect anything */
 }
 
-.content-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+
 
 .content-section.alt {
   background: #edf5ff;
