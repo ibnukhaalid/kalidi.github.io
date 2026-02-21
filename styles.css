@@ -245,9 +245,9 @@ a {
   margin: 76px auto 0;
   padding: 0 5vw;
   scroll-margin-top: calc(var(--header-height) + 20px);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 1;              /* visible by default */
+  transform: none;         /* no animation */
+  /* transition can be removed or kept – it won't affect anything */
 }
 
 .content-section.visible {
