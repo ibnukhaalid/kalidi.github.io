@@ -1073,3 +1073,11 @@ a {
     padding: 7px 10px;
   }
 }
+
+
+/* Non-interactive resource labels */
+.pub-btn.disabled {
+  cursor: default;
+  opacity: 0.72;
+  pointer-events: none;
+}
